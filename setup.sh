@@ -32,3 +32,7 @@ ${LN} dotfiles/.zkbd ~/.zkbd
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +'PlugInstall --sync' +qa
+
+# snippets
+mkdir -p ~/.vim/my-snippets/UltiSnips
+${LN} dotfiles/python.snippets ~/.vim/my-snippets/UltiSnips/python.snippets
