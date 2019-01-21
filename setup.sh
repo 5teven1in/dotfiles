@@ -33,6 +33,9 @@ ${LN} ${DOT}/.tmux.conf.local ${HOME}/.tmux.conf.local
 # zkbd
 ${LN} ${DOT}/.zkbd ${HOME}/.zkbd
 
+# vimrc
+${LN} ${DOT}/.vimrc ${HOME}/.vimrc
+
 # vim plug
 curl -fLo ${HOME}/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
