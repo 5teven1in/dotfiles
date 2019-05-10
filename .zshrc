@@ -113,3 +113,4 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias objdump="objdump -M intel"
+alias vim="stty stop '' -ixoff; vim"
