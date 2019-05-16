@@ -50,6 +50,10 @@ set tm=500
 " USEFUL SHORTCUTS
 "--------------------------------------------------------------------------- 
 
+" go to previous tab
+map <F11> gT
+imap <F11> <C-o>gT
+
 " go to next tab
 map <F12> gt
 imap <F12> <C-o>gt
@@ -66,7 +70,7 @@ imap <C-s> <C-o>:w<CR>
 
 " --- UltiSnips
 let g:UltiSnipsExpandTrigger="<c-e>"
-let g:UltiSnipsSnippetDirectories=["~/.vim/plugged/vim-snippets/UltiSnips", "~/.vim/my-snippets/UltiSnips"]
+let g:UltiSnipsSnippetDirectories=[$HOME."/.vim/my-snippets/UltiSnips", $HOME."/.vim/plugged/vim-snippets/UltiSnips"]
 
 " --- NerdTree Binding
 nnoremap <silent> <F6> :NERDTree<CR>
