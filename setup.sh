@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+
+set -ex
 
 LN="ln -s -f"
 GCL="git clone"
