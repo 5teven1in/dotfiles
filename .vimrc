@@ -11,6 +11,7 @@ Plug 'honza/vim-snippets'
 call plug#end()
 
 " General Settings
+set encoding=utf-8  " set encoding to utf8
 set nocompatible    " not compatible with the old-fashion vi mode
 set bs=2            " allow backspacing over everything in insert mode
 set history=50      " keep 50 lines of command line history
