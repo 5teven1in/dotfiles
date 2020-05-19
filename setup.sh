@@ -49,3 +49,7 @@ git config --global core.excludesfile ${DOT}/.gitignore
 # snippets
 mkdir -p ${HOME}/.vim/my-snippets/UltiSnips
 ${LN} ${DOT}/python.snippets ${HOME}/.vim/my-snippets/UltiSnips/python.snippets
+
+# pyenv
+curl https://pyenv.run | bash
+git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
