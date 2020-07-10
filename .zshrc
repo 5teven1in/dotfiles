@@ -69,6 +69,7 @@ ZSH_THEME="ys.zsh-theme/ys"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  asdf
   git
   sudo
   tmux
@@ -115,6 +116,8 @@ fi
 alias objdump="objdump -M intel"
 alias vim="stty stop '' -ixoff; vim"
 
+export PATH="$HOME/bin:$PATH"
+
 export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
