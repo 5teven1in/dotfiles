@@ -115,6 +115,6 @@ fi
 alias objdump="objdump -M intel"
 alias vim="stty stop '' -ixoff; vim"
 
-export PATH="/root/.pyenv/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
