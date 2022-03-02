@@ -72,7 +72,7 @@ plugins=(
   git
   sudo
   tmux
-  copydir
+  copypath
   copyfile
   extract
   colored-man-pages
