@@ -1,19 +1,36 @@
-#!/bin/bash
-
-set -ex
-
-LN="ln -s -f"
-GCL="git clone"
+#!/bin/bash -x
 
 OMZ="${HOME}/.oh-my-zsh"
-DOT="${HOME}/dotfiles"
+DOT=$(dirname "$(readlink -f "$0")")
 
-# zsh
-chsh -s `which zsh`
+GCL="git clone"
+STOW="stow --dotfiles --adopt -t ${HOME}"
+
+# prerequisites
+cmds="stow curl zsh git tmux vim"
+
+apt update
+
+# check command if not installed, install it
+function check_command_is_installed {
+    if ! command -v $1 >/dev/null 2>&1; then
+        apt install -y $1
+    fi
+}
+
+for cmd in $cmds; do
+    check_command_is_installed $cmd
+done
+
+# check default shell if not zsh set to zsh
+zsh_path=$(which zsh)
+if [ "$SHELL" != ${zsh_path} ]; then
+    chsh -s ${zsh_path}
+fi
 
 # oh-my-zsh
-${GCL} https://github.com/robbyrussell/oh-my-zsh.git ${OMZ}
-${LN} ${DOT}/.zshrc ${HOME}/.zshrc
+# fix interactive install
+yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # ys theme
 ${GCL} https://github.com/ss8651twtw/ys.zsh-theme.git ${OMZ}/custom/themes/ys.zsh-theme
@@ -27,29 +44,34 @@ ${GCL} https://github.com/zsh-users/zsh-completions ${OMZ}/custom/plugins/zsh-co
 # zsh-syntax-highlighting
 ${GCL} https://github.com/zsh-users/zsh-syntax-highlighting.git ${OMZ}/custom/plugins/zsh-syntax-highlighting
 
-# oh-my-tmux
-${GCL} https://github.com/gpakosz/.tmux.git ${HOME}/.tmux
-${LN} ${HOME}/.tmux/.tmux.conf ${HOME}/.tmux.conf
-${LN} ${DOT}/.tmux.conf.local ${HOME}/.tmux.conf.local
+# setup zshrc
+${STOW} zsh
 
-# zkbd
-${LN} ${DOT}/.zkbd ${HOME}/.zkbd
+# oh-my-tmux
+curl -fLo ${DOT}/tmux/dot-tmux.conf https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf
+${STOW} tmux
+
+# tmux restore
+# tmux source-file ${DOT}/tmux/dot-tmux.conf
 
 # vimrc
-${LN} ${DOT}/.vimrc ${HOME}/.vimrc
+${STOW} vim
 
-# vim plug
+# vim plugin
 curl -fLo ${HOME}/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +'PlugInstall --sync' +qa
 
 # global .gitignore
-git config --global core.excludesfile ${DOT}/.gitignore
+git config --global core.excludesfile ${DOT}/dot-gitignore
 
-# snippets
-mkdir -p ${HOME}/.vim/my-snippets/UltiSnips
-${LN} ${DOT}/python.snippets ${HOME}/.vim/my-snippets/UltiSnips/python.snippets
+# # snippets
+# mkdir -p ${HOME}/.vim/my-snippets/UltiSnips
+# ${LN} ${DOT}/python.snippets ${HOME}/.vim/my-snippets/UltiSnips/python.snippets
 
 # pyenv
-curl https://pyenv.run | bash
-git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+# pipenv
+
+# install / update conf
+
+exec $(which zsh)
