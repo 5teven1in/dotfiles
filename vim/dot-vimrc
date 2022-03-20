@@ -1,12 +1,8 @@
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
-Plug 'vim-airline/vim-airline'
-Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'townk/vim-autoclose'
-Plug 'sirver/ultisnips'
-Plug 'honza/vim-snippets'
 
 call plug#end()
 
