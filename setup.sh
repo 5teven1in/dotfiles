@@ -65,10 +65,6 @@ vim +'PlugInstall --sync' +qa
 # global .gitignore
 git config --global core.excludesfile ${DOT}/dot-gitignore
 
-# # snippets
-# mkdir -p ${HOME}/.vim/my-snippets/UltiSnips
-# ${LN} ${DOT}/python.snippets ${HOME}/.vim/my-snippets/UltiSnips/python.snippets
-
 # pyenv
 # pipenv
 
