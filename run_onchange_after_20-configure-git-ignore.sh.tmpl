@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Dependency snapshot: Git is {{ if lookPath "git" }}available{{ else }}missing{{ end }}.
+
 if ! command -v git >/dev/null 2>&1; then
   printf 'dotfiles: git not found; global ignore configuration was skipped.\n' >&2
   exit 0
