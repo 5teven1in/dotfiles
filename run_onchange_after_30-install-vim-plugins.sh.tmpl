@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Re-run when the managed vimrc changes: {{ include "dot_vimrc" | sha256sum }}
+if ! command -v vim >/dev/null 2>&1; then
+  printf 'dotfiles: vim not found; plugin synchronization was skipped.\n' >&2
+  exit 0
+fi
+
+if [ ! -f "$HOME/.vim/autoload/plug.vim" ]; then
+  printf 'dotfiles: vim-plug is unavailable; plugin synchronization was skipped.\n' >&2
+  exit 0
+fi
+
+if ! vim -Nu "$HOME/.vimrc" -n -es +'PlugInstall --sync' +qa; then
+  printf 'dotfiles: Vim plugin synchronization failed; continuing.\n' >&2
+fi
+
+exit 0
