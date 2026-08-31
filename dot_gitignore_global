@@ -1,0 +1,19 @@
+# macOS metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Vim swap, undo, and session files
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]*.un~
+Session.vim
+Sessionx.vim
+.netrwhist
+
+# Editor and filesystem temporary files
+*~
+*.bak
+.nfs*
+.fuse_hidden*

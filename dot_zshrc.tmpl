@@ -1,0 +1,52 @@
+if [[ -n "${TMUX:-}" ]]; then
+  export TERM="screen-256color"
+else
+  export TERM="xterm-256color"
+fi
+
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="ys.zsh-theme/ys"
+
+plugins=(
+  git
+  sudo
+  tmux
+  copypath
+  copyfile
+  extract
+  colored-man-pages
+  zsh-completions
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+
+# Run `ZSH_PROFILE=1 zsh -i -c exit` to measure startup with zprof.
+if [[ -n "${ZSH_PROFILE:-}" ]]; then
+  zmodload zsh/zprof
+fi
+
+if [[ -r "$ZSH/oh-my-zsh.sh" ]]; then
+  source "$ZSH/oh-my-zsh.sh"
+fi
+
+export EDITOR="${EDITOR:-vim}"
+export VISUAL="${VISUAL:-$EDITOR}"
+
+# Use 1Password's SSH agent when no agent has already been configured.
+if [[ -z "${SSH_AUTH_SOCK:-}" ]]; then
+{{- if eq .chezmoi.os "darwin" }}
+  onepassword_agent="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+{{- else if eq .chezmoi.os "linux" }}
+  onepassword_agent="$HOME/.1password/agent.sock"
+{{- else }}
+  onepassword_agent=""
+{{- end }}
+  if [[ -n "$onepassword_agent" && -S "$onepassword_agent" ]]; then
+    export SSH_AUTH_SOCK="$onepassword_agent"
+  fi
+  unset onepassword_agent
+fi
+
+if [[ -n "${ZSH_PROFILE:-}" ]]; then
+  zprof
+fi

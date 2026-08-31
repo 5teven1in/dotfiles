@@ -1,0 +1,44 @@
+" vim-plug plugins
+call plug#begin('~/.vim/plugged')
+Plug 'airblade/vim-gitgutter'
+Plug 'townk/vim-autoclose'
+call plug#end()
+
+set nocompatible
+set encoding=utf-8
+set backspace=indent,eol,start
+set history=50
+set ruler
+set autoread
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set autoindent
+set copyindent
+set smarttab
+set expandtab
+set softtabstop=4
+set shiftwidth=4
+set number
+set nobackup
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+filetype plugin indent on
+syntax on
+
+augroup dotfiles
+  autocmd!
+  autocmd BufWritePost .vimrc source $MYVIMRC
+  autocmd FileType make setlocal noexpandtab
+augroup END
+
+nnoremap <F11> gT
+inoremap <F11> <C-o>gT
+nnoremap <F12> gt
+inoremap <F12> <C-o>gt
+nnoremap <C-s> :write<CR>
+inoremap <C-s> <C-o>:write<CR>

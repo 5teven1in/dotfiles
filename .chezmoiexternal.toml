@@ -1,0 +1,44 @@
+[".oh-my-zsh"]
+    type = "archive"
+    url = "https://github.com/ohmyzsh/ohmyzsh/archive/a5ecff7560b2e26f612032c632a12c75a3048bd0.tar.gz"
+    exact = false
+    stripComponents = 1
+    checksum.sha256 = "b8b3582fa89553aa2b122028a9b49e678a905108dd8622e47ecb9d3c7107f0ec"
+
+[".oh-my-zsh/custom/themes/ys.zsh-theme"]
+    type = "archive"
+    url = "https://github.com/ss8651twtw/ys.zsh-theme/archive/4bce3fabfd6c9cb9d47eaecaf8edcec5f1c5bffc.tar.gz"
+    exact = false
+    stripComponents = 1
+    checksum.sha256 = "0ebd7a9d283658642b01cf9b842ddfbbb6c273832afca2407bb70ae0ca7d5199"
+
+[".oh-my-zsh/custom/plugins/zsh-completions"]
+    type = "archive"
+    url = "https://github.com/zsh-users/zsh-completions/archive/8cd3bd78e8b1f17271cfdd8269074e5557d8d7b8.tar.gz"
+    exact = false
+    stripComponents = 1
+    checksum.sha256 = "2500c7a3a36d2a2eeea7265e3cb323bf59f434d84134f8a4f05bc5acf525e05f"
+
+[".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
+    type = "archive"
+    url = "https://github.com/zsh-users/zsh-autosuggestions/archive/85919cd1ffa7d2d5412f6d3fe437ebdbeeec4fc5.tar.gz"
+    exact = false
+    stripComponents = 1
+    checksum.sha256 = "20665e469e720e674964a66854d5534b9af78cdfd438512746ecd1ade8e819ce"
+
+[".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+    type = "archive"
+    url = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/2fc57d63067c18b1100ecdbf684fa5baf49459d1.tar.gz"
+    exact = false
+    stripComponents = 1
+    checksum.sha256 = "ae951d550009375138c7a029f908a7cb255861ed16701a2c6ea62f17e7e7df69"
+
+[".vim/autoload/plug.vim"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/junegunn/vim-plug/88e31471818e9a29a8a20a0ee61360cfd7bdc1cd/plug.vim"
+    checksum.sha256 = "7e2b20cd909da9c456498684c98f03c63829170f01e34595dd8e1818a217d37c"
+
+[".tmux.conf"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/gpakosz/.tmux/58a3dcc0d718ec0fa1c0d5a2fddd640a1ad7a5b7/.tmux.conf"
+    checksum.sha256 = "30850a2e23ca1707a675e870e9c448971538d48fcd8e2f2681a1f004fe9d4ce0"
