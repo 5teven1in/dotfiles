@@ -1,6 +1,7 @@
 #!/bin/sh
 
-# Re-check on every apply so a newly available Homebrew can be used later.
+# Dependency snapshot: Homebrew is {{ if lookPath "brew" }}available{{ else }}missing{{ end }}.
+# The snapshot changes if Homebrew becomes available after the first apply.
 print_missing_commands() {
   missing=""
   for command_name in git tmux vim zsh; do
